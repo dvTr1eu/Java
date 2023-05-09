@@ -115,10 +115,10 @@ public class frmDangNhap extends javax.swing.JFrame {
             if(rs.next()){
                 frmTrangChu frm = new frmTrangChu();
                 frm.show();
-                this.hide();
+//                this.hide();
             }
             else {
-                JOptionPane.showMessageDialog(this, "sai tai khoan hoac mat khau");
+                JOptionPane.showMessageDialog(this, "Sai tài khoản hoặc mật khẩu");
            }
         }
         catch(SQLException e){

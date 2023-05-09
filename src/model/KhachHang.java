@@ -14,6 +14,22 @@ public class KhachHang {
     private String diachi;
     private String sodt;
 
+    public KhachHang(String makh, String hoten, String diachi, String sodt) {
+        this.makh = makh;
+        this.hoten = hoten;
+        this.diachi = diachi;
+        this.sodt = sodt;
+    }
+
+    public KhachHang() {
+    }
+
+    @Override
+    public String toString() {
+        return "KhachHang{" + "makh=" + makh + ", hoten=" + hoten + ", diachi=" + diachi + ", sodt=" + sodt + '}';
+    }
+    
+    
     public String getMakh() {
         return makh;
     }

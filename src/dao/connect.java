@@ -34,7 +34,7 @@ public class connect {
             throw new RuntimeException(e);
         }
     }
-    public static void main(String[] args) throws SQLException {
-        Connection cn = getConnection();
-    }
+//    public static void main(String[] args) throws SQLException {
+//        Connection cn = getConnection();
+//    }
 }

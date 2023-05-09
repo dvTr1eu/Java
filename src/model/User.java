@@ -12,6 +12,20 @@ public class User {
     private String taikhoan;
     private String matkhau;
 
+    public User(String taikhoan, String matkhau) {
+        this.taikhoan = taikhoan;
+        this.matkhau = matkhau;
+    }
+
+    public User() {
+    }
+
+    @Override
+    public String toString() {
+        return "User{" + "taikhoan=" + taikhoan + ", matkhau=" + matkhau + '}';
+    }
+
+
     public String getTaikhoan() {
         return taikhoan;
     }
