@@ -58,14 +58,14 @@ public class KhachHangDAO {
         return false;
     }
     
-        public boolean sua(KhachHang khachHang){
+        public boolean sua(String Ma, String Ten, String Dc, String SDT){
         String sql = "Update KhachHang set HoTen = ?, DiaChi = ?, SoDT = ? where MaKH = ?";
         try {
             PreparedStatement pst = conn.prepareStatement(sql);
-                pst.setString(4, khachHang.getMakh());
-                pst.setString(1, khachHang.getHoten());
-                pst.setString(2, khachHang.getDiachi());
-                pst.setString(3, khachHang.getSodt());
+                pst.setString(4, Ma);
+                pst.setString(1, Ten);
+                pst.setString(2, Dc);
+                pst.setString(3, SDT);
                 return pst.executeUpdate() > 0;
         }
         catch(Exception ex){

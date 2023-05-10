@@ -15,7 +15,6 @@ import view.HoaDonJPanel;
 import view.KhachHangJPanel;
 import view.NhanVienJPanel;
 import view.SanPhamJPanel;
-import view.ThongKeJPanel;
 
 /**
  *
@@ -32,7 +31,7 @@ public class ChuyenManHinhControl {
     }
     
     public void setView(JPanel jpnItem, JLabel jlbItem){
-        kindSelectd = "KhachHang";
+//        kindSelectd = "KhachHang";
 //        jpnItem.setBackground(new Color(96,100,191));
 //        jlbItem.setBackground(new Color(96,100,191));
         
@@ -80,9 +79,6 @@ public class ChuyenManHinhControl {
                     break;
                 case "HoaDon":
                     node = new HoaDonJPanel();
-                    break;
-                case "ThongKe":
-                    node = new ThongKeJPanel();
                     break;
                 default:
                     node = new NhanVienJPanel();

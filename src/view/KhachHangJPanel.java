@@ -314,44 +314,13 @@ public class KhachHangJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-//        DefaultTableModel dtm = (DefaultTableModel)tbView.getModel();
-//        if(txtMaKH.getText().equals("") || txtTen.getText().equals("")){
-//            JOptionPane.showMessageDialog(this, "Mã hoặc tên sinh viên trống");
-//            return;
-//        }
-//        else if(txtMaKH.getText().equals(khachHang.getMakh())){
-//            JOptionPane.showMessageDialog(this, "Không được trùng mã sinh viên");
-//            return;
-//        }
-//        else {
-//            String sql = "Insert into KhachHang Values(?,?,?,?)" ;
-//            try{
-//            PreparedStatement pst = conn.prepareStatement(sql);
-//                pst.setString(1, txtMaKH.getText());
-//                pst.setString(2, txtTen.getText());
-//                pst.setString(3, txtDiachi.getText());
-//                pst.setString(4, txtSoDT.getText());
-//            int check = pst.executeUpdate();
-//            if(check > 0){
-//                JOptionPane.showMessageDialog(this, "Thêm thành công");
-//                dtm.setRowCount(0);
-//                list.add(khachHang);
-//                showResult();
-//            }
-//
-//            }
-//            catch(Exception ex){
-//                ex.printStackTrace();
-//            }
-//        }
-        
 
         khachHang.setMakh(txtMaKH.getText());
         khachHang.setHoten(txtTen.getText());
         khachHang.setDiachi(txtDiachi.getText());
         khachHang.setSodt(txtSoDT.getText());
         if(txtMaKH.getText().equals("") || txtTen.getText().equals("")){
-            JOptionPane.showMessageDialog(this, "Mã hoặc tên sinh viên trống");
+            JOptionPane.showMessageDialog(this, "Mã hoặc tên khách hàng trống");
             return;
         }
         else if(new KhachHangDAO().them(khachHang)){
@@ -361,7 +330,7 @@ public class KhachHangJPanel extends javax.swing.JPanel {
             reset();
         }
         else{
-            JOptionPane.showMessageDialog(this, "Không được trùng mã sinh viên");
+            JOptionPane.showMessageDialog(this, "Không được trùng mã khách hàng");
             return;
         }
     }//GEN-LAST:event_btnThemActionPerformed
@@ -413,20 +382,28 @@ public class KhachHangJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
-        DefaultTableModel dtm = (DefaultTableModel)tbView.getModel();
-        khachHang.setMakh(txtMaKH.getText());
-        khachHang.setHoten(txtTen.getText());
-        khachHang.setDiachi(txtDiachi.getText());
-        khachHang.setSodt(txtSoDT.getText());
-        if(new KhachHangDAO().sua(khachHang)){
+        String Ma = txtMaKH.getText();
+        String Ten = txtTen.getText();
+        String Dc = txtDiachi.getText();        
+        String SDT =txtSoDT.getText();
+        if(khachHangDAO.sua(Ma, Ten, Dc, SDT)){
             JOptionPane.showMessageDialog(this, "Sửa thành công");
-            dtm.setRowCount(0);
-            fillTable();
             reset();
         }
         else{
             JOptionPane.showMessageDialog(this, "Sửa thất bại");
-            return;
+        }
+        DefaultTableModel model = (DefaultTableModel)tbView.getModel();
+        while(model.getRowCount()!=0){
+            model.removeRow(0);
+        }
+        for(KhachHang o : list){
+            model.addRow(new Object[]{
+                o.getMakh(),
+                o.getHoten(),
+                o.getDiachi(),
+                o.getSodt()
+            });
         }
     }//GEN-LAST:event_btnSuaActionPerformed
 
@@ -435,7 +412,6 @@ public class KhachHangJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnThoatActionPerformed
 
     private void btnTimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimActionPerformed
-
         String ten = txtTim.getText();
         if(ten.isEmpty()){
             JOptionPane.showMessageDialog(this, "Hãy nhập tên khách hàng cần tìm");
@@ -471,15 +447,12 @@ public class KhachHangJPanel extends javax.swing.JPanel {
             catch(Exception ex){
                 ex.printStackTrace();
             }
-        }
-        
+        } 
     }//GEN-LAST:event_btnTimActionPerformed
 
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
-        DefaultTableModel dtm = (DefaultTableModel) tbView.getModel();
         reset();
         txtMaKH.enable(true);
-        dtm.setRowCount(0);
         fillTable();
     }//GEN-LAST:event_btnNewActionPerformed
 

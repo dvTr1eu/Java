@@ -12,7 +12,7 @@ public class SanPham {
     private String masp;
     private String tensp;
     private String donvitinh;
-    private float dongia;
+    private int soluong;
 
     public String getMasp() {
         return masp;
@@ -38,12 +38,12 @@ public class SanPham {
         this.donvitinh = donvitinh;
     }
 
-    public float getDongia() {
-        return dongia;
+    public int getSoluong() {
+        return soluong;
     }
 
-    public void setDongia(float dongia) {
-        this.dongia = dongia;
+    public void setSoluong(int soluong) {
+        this.soluong = soluong;
     }
     
     

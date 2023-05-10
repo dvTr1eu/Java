@@ -15,7 +15,7 @@ public class NhanVien {
     private String tennv;
     private Date ngaysinh;
     private String diachi;
-    private String sodienthoat;
+    private String sodienthoai;
     private String gioitinh;
 
     public String getManv() {
@@ -50,12 +50,12 @@ public class NhanVien {
         this.diachi = diachi;
     }
 
-    public String getSodienthoat() {
-        return sodienthoat;
+    public String getSodienthoai() {
+        return sodienthoai;
     }
 
-    public void setSodienthoat(String sodienthoat) {
-        this.sodienthoat = sodienthoat;
+    public void setSodienthoai(String sodienthoai) {
+        this.sodienthoai = sodienthoai;
     }
 
     public String getGioitinh() {
