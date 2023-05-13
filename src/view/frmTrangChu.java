@@ -268,6 +268,8 @@ public class frmTrangChu extends javax.swing.JFrame {
 
     private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatActionPerformed
         this.setVisible(false);
+        frmDangNhap frm = new frmDangNhap();
+        frm.setVisible(true);
     }//GEN-LAST:event_btnDangXuatActionPerformed
 
     /**

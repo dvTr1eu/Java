@@ -39,28 +39,6 @@ public class SanPhamDAO {
         return list;
     }
     
-//    public List<SanPham> getBySearch(String text){
-//        String query ="select* from SanPham where TenHG like N'%"+text+"%'";
-//        List<SanPham> list = new ArrayList<>(); 
-//        try {
-//            conn = new connect().getConnection();
-//            ps = conn.prepareStatement(query);
-////            ps.setString(1, text);
-//            rs = ps.executeQuery();
-//            while(rs.next()){
-//                list.add(new SanPham(rs.getString("MaHG"), 
-//                        rs.getString("TenHG"), 
-//                        rs.getString("DonViTinh"),
-//                        rs.getInt("SoLuong"))
-//                );
-//            }
-//            return list;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
-    
     public boolean them(String Ma, String Ten,String DVT,int Sl){
         String query = "insert into SanPham values(N'"+Ma+"',N'"+Ten+"',N'"+DVT+"',"+Sl+")";
         try {
@@ -85,12 +63,11 @@ public class SanPhamDAO {
     }
     public boolean xoa(String DelMa){
         String query = "delete from SanPham where MaSP = ?";
-            List<SanPham> list = new ArrayList<>(); 
         try {
             ps = conn.prepareStatement(query);
             ps.setString(1, DelMa);
-            ps.executeUpdate();
-            return ps.executeUpdate() >0;
+            int result = ps.executeUpdate();
+            return result > 0;
         }
         catch(Exception ex){
             ex.printStackTrace();

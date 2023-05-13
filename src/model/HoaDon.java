@@ -15,7 +15,20 @@ public class HoaDon {
     private String makh;
     private String manv;
     private Date ngaylap;
+    private float thanhtoan;
 
+    public HoaDon() {
+    }
+
+    public HoaDon(String mahd, String makh, String manv, Date ngaylap, float thanhtoan) {
+        this.mahd = mahd;
+        this.makh = makh;
+        this.manv = manv;
+        this.ngaylap = ngaylap;
+        this.thanhtoan = thanhtoan;
+    }
+
+    
     public String getMahd() {
         return mahd;
     }
@@ -46,6 +59,14 @@ public class HoaDon {
 
     public void setNgaylap(Date ngaylap) {
         this.ngaylap = ngaylap;
+    }
+
+    public float getThanhtoan() {
+        return thanhtoan;
+    }
+
+    public void setThanhtoan(float thanhtoan) {
+        this.thanhtoan = thanhtoan;
     }
     
     
